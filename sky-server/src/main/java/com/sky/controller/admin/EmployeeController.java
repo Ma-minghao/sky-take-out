@@ -80,7 +80,7 @@ public class EmployeeController {
     /**
      * 新增员工
      *
-     * @param employee
+     * @param employeeDTO
      * @return
      */
     @PostMapping
