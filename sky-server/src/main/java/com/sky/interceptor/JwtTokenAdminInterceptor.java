@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -48,6 +49,10 @@ public class JwtTokenAdminInterceptor implements HandlerInterceptor {
             Claims claims = JwtUtil.parseJWT(jwtProperties.getAdminSecretKey(), token);
             Long empId = Long.valueOf(claims.get(JwtClaimsConstant.EMP_ID).toString());
             log.info("当前员工id：", empId);
+
+//            设置了BaseContext中静态ThreadLocal类的empId，可以在多线程环境中储存局部变量
+//            BaseContext类的目的是提供一个简单的机制，允许在多个类之间共享线程级别的数据。
+//            例如，如果您有一个服务层，其中多个方法可能需要访问当前操作的员工ID，您可以使用 BaseContext 类来存储和访问这个ID。
             BaseContext.setCurrentId(empId);
             //3、通过，放行
             return true;
