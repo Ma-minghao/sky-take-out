@@ -33,11 +33,18 @@
     </properties>
     <dependencyManagement>
         <dependencies>
+            <!-- mybatis-plus -->
             <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis.spring}</version>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.5.2</version>
             </dependency>
+
+<!--            <dependency>-->
+<!--                <groupId>org.mybatis.spring.boot</groupId>-->
+<!--                <artifactId>mybatis-spring-boot-starter</artifactId>-->
+<!--                <version>${mybatis.spring}</version>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -122,6 +129,8 @@
                 <artifactId>wechatpay-apache-httpclient</artifactId>
                 <version>0.4.8</version>
             </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 </project>
